@@ -4,15 +4,13 @@
 
 Работа с MySQL
 
-1. Запускаем приложение командой `java -jar artifacts/aqa-shop.jar`
-2. После подъема приложений запускаем автотесты командой `gradlew clean test allureReport`
+1. Запускаем приложение командой `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar`
+2. После подъема приложений запускаем автотесты командой `gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app allureReport`
 
 Работа с Postgres
 
-1. В файле `application.properties` раскомментировать 4 строку 
-и закомментировать 3 строку. (удалить # перед третьей строкой и 
-поставить перед 3).
-2. После подъема приложений запускаем автотесты командой `gradlew clean test allureReport`.
+1. Запускаем приложение командой `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar`
+2. После подъема приложений запускаем автотесты командой `gradlew clean test -Ddb.url=jdbc:postgresql://localhost:5432/app allureReport`.
 
-После прохождения тестов, в последнем терминале остановить 
-работу приложения сочетанием клавиш ctrl + C.
+После прохождения тестов, в последнем терминале остановить работу приложения сочетанием клавиш ctrl + C.
+Остановить контейнеры командой docker-compose down
